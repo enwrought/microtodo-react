@@ -1,7 +1,12 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/aria-role */
+import React, { Component, PropTypes } from 'react';
 import NavLink from './NavLink';
 
-export default React.createClass({
+export default class extends Component {
+  static propTypes = {
+    children: PropTypes.node
+  };
+
   render() {
     return (
       <div>
@@ -15,4 +20,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
