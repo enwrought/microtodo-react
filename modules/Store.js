@@ -1,17 +1,16 @@
-import { AsyncStorage } from 'react-native';
-
 export const KEYS = {
   TASKS: 'tasks',
   SETTINGS: 'settings'
 };
 
-export default function saveTasks(taskProps) {
-  AsyncStorage.setItem(KEYS.TASKS, JSON.stringify(taskProps));
+export default function saveTasks() {
+  // TODO:
+  return;
 }
 
 export function loadTasks() {
-  const value = AsyncStorage.getItem(KEYS.TASKS) || '[]';
-  return JSON.parse(value);
+  // TODO
+  return;
 }
 
 // TODO: handle settings

@@ -1,0 +1,54 @@
+.task {
+  padding: 4px;
+  position: relative;
+  min-height: 36px;
+  margin: 4px;
+}
+
+.task__header {
+  min-height: 36px;
+  width: auto;
+}
+
+.task__title {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: calc(100% - 128px);
+}
+
+.task__time {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px;
+  width: 120px;
+}
+
+.task__description {
+  font-size: 1.0rem;
+  width: auto;
+}
+
+.task__modify {
+  min-height: 18px;
+  width: auto;
+}
+
+.task__due-date {
+  position: absolute;
+  left: 0;
+  padding-left: 4px;
+}
+
+.task__edit {
+  position: absolute;
+  right: 0;
+  padding-right: 4px;
+}

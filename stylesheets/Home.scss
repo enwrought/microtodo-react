@@ -1,0 +1,21 @@
+.home {
+  position: relative;
+}
+
+.home__overview {
+  position: relative;
+  min-height: 16px;
+  padding: 4px;
+}
+
+.home__time-left {
+  position: absolute;
+  left: 0;
+  padding-left: 4px;
+}
+
+.home__tasks-left {
+  position: absolute;
+  right: 0;
+  padding-right: 4px;
+}

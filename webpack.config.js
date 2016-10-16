@@ -6,8 +6,12 @@ module.exports = {
   output: {
     path: 'public',
     filename: 'bundle.js',
+    sourceMapFilename: '[file].map',
     publicPath: '/'
   },
+
+  debug: true,
+  devtool: 'cheap-source-map',
 
   // add this handful of plugins that optimize the build
   // when we're in production
@@ -19,7 +23,19 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react' }
-    ]
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015', 'stage-0', 'react'],
+          plugins: ['transform-runtime', 'transform-decorators-legacy']
+        }
+      },
+      {
+        test: /\.scss/,
+        loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
+      }
+    ],
   }
 }
