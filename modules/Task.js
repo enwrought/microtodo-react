@@ -1,5 +1,8 @@
+// @flow
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { Component, PropTypes } from 'react';
+import { Row, Col, Card, Button } from 'reactstrap';
+
 import { toStringTime } from './utils';
 import NavLink from './NavLink';
 
@@ -33,16 +36,16 @@ export default class Task extends Component {
   expandedContent() {
     const { description, dueDate, taskId } = this.props;
     return (
-      <div className="task__content">
-        <div className="task__description">{ description }</div>
-        <div className="task__modify">
+      <Row className="task__content">
+        <Col xs="12" className="task__description">{ description }</Col>
+        <Col xs="12" className="task__modify">
           <span className="task__due-date">Due by: { dueDate }</span>
           <span className="task__edit"><NavLink to={ `/edit/${taskId}` }>Edit</NavLink></span>
           {
             // TODO: mark complete here
           }
-        </div>
-      </div>
+        </Col>
+      </Row>
     );
   }
 
@@ -52,7 +55,7 @@ export default class Task extends Component {
     const content = this.state.expanded ? this.expandedContent() : '';
 
     if (completed) {
-      return '';
+      return null;
     }
 
     return (

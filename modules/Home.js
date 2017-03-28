@@ -4,11 +4,11 @@ import { taskSort } from './taskSort';
 import { toStringTime } from './utils';
 import Task from './Task';
 
-export default
 @colorPalette
-class Home extends Component {
+export default class Home extends Component {
   task_array = [
     {
+      taskId: 0,
       name: 'Explore Store design',
       estimate: 90,
       description: 'Take a look at localStorage',
@@ -17,6 +17,7 @@ class Home extends Component {
       color: Home.getNextColor()
     },
     {
+      taskId: 1,
       name: 'Use store instead of default',
       estimate: 60,
       completed: false,
@@ -24,6 +25,7 @@ class Home extends Component {
       color: Home.getNextColor()
     },
     {
+      taskId: 2,
       name: 'Read Zone to Win',
       estimate: 240,
       completed: false,
@@ -31,6 +33,7 @@ class Home extends Component {
       color: Home.getNextColor()
     },
     {
+      taskId: 3,
       name: 'Write stories/design algorithm for scheduling',
       estimate: 45,
       completed: false,
@@ -38,6 +41,7 @@ class Home extends Component {
       color: Home.getNextColor()
     },
     {
+      taskId: 4,
       name: 'Make ColorPalette a decorator',
       estimate: 45,
       completed: false,
@@ -48,12 +52,13 @@ class Home extends Component {
 
   // TODO: find some way to not recompute this every render
   generateTasks() {
-    return taskSort(this.task_array).map((props, keyIndex) =>
-      (<Task key={ keyIndex } { ...props } />));
+    return taskSort(this.task_array).map(props =>
+      (<Task key={ props.taskId } { ...props } />));
   }
 
   render() {
     const tasks = this.generateTasks();
+    const tmp = this.generateTasks('hello');
     // TODO: make the actual number of time
     const remainingTime = `Remaining time: ${toStringTime(157)}`;
 
