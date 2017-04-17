@@ -5,8 +5,9 @@ export const KEYS = {
 
 // TODO: clean up/check working
 export const ACTIONS = {
-  EDIT_TASK: 'EDIT_TASK_REDUCER',
-  TOGGLE_DONE: 'TOGGLE_DONE_REDUCER'
+  NEW_TASK: 'NEW_TASK',
+  EDIT_TASK: 'EDIT_TASK',
+  TOGGLE_DONE: 'TOGGLE_DONE'
 };
 
 /**
@@ -33,24 +34,25 @@ export default ACTIONS;
 // TODO: add mapping
 export const task_reducer = (state = [], action) => {
   switch (action.type) {
+    case ACTIONS.NEW_TASK:
+      return [...state, action.newContent];
     case ACTIONS.EDIT_TASK:
-      return replaceTaskInState(state, action.taskId, prevTaskValue => ({
+      return replaceTaskInState(state, action.newContent.taskId, prevTaskValue => ({
         ...prevTaskValue,
-        content: { ...action.newContent }
+        ...action.newContent
       }));
     case ACTIONS.TOGGLE_DONE:
-      return replaceTaskInState(state, action.taskId, prevTaskValue => ({
-        id: action.taskId,
-        content: {
-          ...prevTaskValue,
-          done: !prevTaskValue.done
-        }
+      return replaceTaskInState(state, action.newContent.taskId, prevTaskValue => ({
+        ...prevTaskValue,
+        done: !prevTaskValue.done
       }));
     default:
       return state;
   }
 };
 
+// TODO: use helpers like this
+/*
 export function saveTask(taskId, task) {
   // TODO: apply action to redux
   const saveAction = {
@@ -65,6 +67,7 @@ export function loadTasks() {
   // TODO
   return;
 }
+*/
 
 // TODO: handle settings
 // export const function saveSettings

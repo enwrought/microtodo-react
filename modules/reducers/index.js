@@ -1,6 +1,8 @@
-import { createReducer } from 'redux';
+import { combineReducers } from 'redux';
 import { task_reducer } from './task_reducers';
 
-const todo = createReducer(task_reducer);
+const reducers = combineReducers({
+  tasks: task_reducer
+});
 
-export default todo;
+export default reducers;
