@@ -1,64 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { colorPalette } from './colorPalette';
 import { taskSort } from './taskSort';
 import { toStringTime } from './utils';
 import Task from './Task';
 
-export default
-@colorPalette
-class Home extends Component {
-  task_array = [
-    {
-      name: 'Explore Store design',
-      estimate: 90,
-      description: 'Take a look at localStorage',
-      completed: false,
-      dueDate: '09/20/16',
-      color: Home.getNextColor()
-    },
-    {
-      name: 'Use store instead of default',
-      estimate: 60,
-      completed: false,
-      dueDate: '09/23/16',
-      color: Home.getNextColor()
-    },
-    {
-      name: 'Read Zone to Win',
-      estimate: 240,
-      completed: false,
-      dueDate: '09/19/16',
-      color: Home.getNextColor()
-    },
-    {
-      name: 'Write stories/design algorithm for scheduling',
-      estimate: 45,
-      completed: false,
-      dueDate: '09/25/16',
-      color: Home.getNextColor()
-    },
-    {
-      name: 'Make ColorPalette a decorator',
-      estimate: 45,
-      completed: false,
-      dueDate: '09/30/16',
-      color: Home.getNextColor()
-    }
-  ];
+@connect(state => {
+  return { tasks: state.tasks };
+})
+export default class Home extends Component {
+  static propTypes = {
+    tasks: PropTypes.arrayOf(PropTypes.object).isRequired
+  };
 
   // TODO: find some way to not recompute this every render
   generateTasks() {
-    return taskSort(this.task_array).map((props, keyIndex) =>
-      (<Task key={ keyIndex } { ...props } />));
+    return taskSort(this.props.tasks).map(props =>
+      (<Task key={ props.taskId } { ...props } />));
   }
 
   render() {
     const tasks = this.generateTasks();
+    const tmp = this.generateTasks('hello');
     // TODO: make the actual number of time
     const remainingTime = `Remaining time: ${toStringTime(157)}`;
 
     // TODO: check to see if the task is complete before including it
-    const tasksLeft = `Tasks left: ${this.task_array.length}`;
+    const tasksLeft = `Tasks left: ${this.props.tasks.length}`;
 
     return (
       <div className="home">

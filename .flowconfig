@@ -1,0 +1,10 @@
+[ignore]
+.*/public/.*
+.*/node_modules/fbjs/.*
+
+[include]
+
+[libs]
+flow-typed
+
+[options]

@@ -2,7 +2,7 @@
     "compilerOptions": {
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "module": "amd",
-        "target": "ES6" 
+        "module": "commonjs",
+        "target": "es6" 
     }
 }
