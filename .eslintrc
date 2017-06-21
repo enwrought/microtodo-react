@@ -17,7 +17,8 @@
     "no-unused-vars": 1,
     "no-console": "error",
     "camelcase": 0,
-    "arrow-body-style": 0
+    "arrow-body-style": 0,
+    "import/prefer-default-export": 1
   },
   "env": {
     "browser": true,
