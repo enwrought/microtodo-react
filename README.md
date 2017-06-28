@@ -1,3 +1,5 @@
+#  [![Codeship Status for enwrought/microtodo-react][codeship-img]][codeship-url] [![Stories in Ready][waffle-img]][waffle-url] [![Dependency Status][daviddm-img]][daviddm-url]
+
 # Micro Todo List
 Web todolist app on AWS.
 
@@ -28,3 +30,11 @@ and
 aws s3 sync client/dist s3://s3bucketname
 ```
 The cloudfront site is under the output `WebAppCloudFrontDistributionOutput`.
+
+
+[codeship-img]: https://app.codeship.com/projects/b1a7c1a0-e49e-0134-6df5-463b5d52dfb2/status?branch=master
+[codeship-url]: https://app.codeship.com/projects/206230
+[waffle-img]: https://badge.waffle.io/enwrought/microtodo-react.png?label=ready&title=Ready
+[waffle-url]: http://waffle.io/enwrought/microtodo-react
+[daviddm-img]: https://david-dm.org/enwrought/microtod-react.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/enwrought/microtod-react
