@@ -36,5 +36,5 @@ The cloudfront site is under the output `WebAppCloudFrontDistributionOutput`.
 [codeship-url]: https://app.codeship.com/projects/206230
 [waffle-img]: https://badge.waffle.io/enwrought/microtodo-react.png?label=ready&title=Ready
 [waffle-url]: http://waffle.io/enwrought/microtodo-react
-[daviddm-img]: https://david-dm.org/enwrought/microtod-react.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/enwrought/microtod-react
+[daviddm-img]: https://david-dm.org/enwrought/microtodo-react.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/enwrought/microtodo-react

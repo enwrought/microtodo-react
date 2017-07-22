@@ -38,6 +38,7 @@
   },
   "parser": "babel-eslint",
   "plugins": [
+    "flowtype",
     "react"
   ],
   "fix": true
