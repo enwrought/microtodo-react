@@ -43,8 +43,13 @@ module.exports = [
     }
   },
   {
-    entry: './server/main.js',
-    output: {
+    // babel-polyfill for async/await functionality
+    entry: {
+      createUser: ['babel-polyfill', './server/routes/createUser.js'],
+      loadTasks: ['babel-polyfill', './server/routes/loadTasks.js'],
+      saveTasks: ['babel-polyfill', './server/routes/saveTasks.js']
+    },
+    output: { 
       path: './server/dist/',
       library: '[name]',
       libraryTarget: 'commonjs2',
@@ -63,7 +68,7 @@ module.exports = [
           exclude: /node_modules/,
           loader: 'babel-loader',
           query: {
-            presets: ['es2015', 'stage-0'],
+            presets: ['es2015', 'stage-0', 'flow'],
             plugins: ['syntax-flow', 'transform-flow-strip-types']
           }
         },

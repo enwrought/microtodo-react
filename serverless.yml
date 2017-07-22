@@ -7,7 +7,9 @@ package:
   exclude:
     - '**'
   include:
-    - server/dist/main.js
+    - server/dist/createUser.js
+    - server/dist/loadTasks.js
+    - server/dist/saveTasks.js
 
 custom:
   s3Bucket: ${env:STACK_PREFIX}-static-site-bucket-tasks-app
@@ -26,7 +28,7 @@ provider:
         - "*"
 functions:
   createUser:
-    handler: server/dist/main.createUser
+    handler: server/dist/createUser.createUser
     environment:
       TASKS_BUCKET: ${self:custom.tasksBucket}
     events:
@@ -35,18 +37,22 @@ functions:
         method: post
         cors: true
   saveTasks:
-    handler: server/dist/main.saveTasks
+    handler: server/dist/saveTasks.saveTasks
+    environment:
+      TASKS_BUCKET: ${self:custom.tasksBucket}
     events:
     - http:
         path: users/{userId}
         method: put
         cors: true
   loadTasks:
-    handler: server/dist/main.loadTasks
+    handler: server/dist/loadTasks.loadTasks
+    environment:
+      TASKS_BUCKET: ${self:custom.tasksBucket}
     events:
     - http:
-        path: users/{userId}
-        method: post
+        path: users/{userId}/tasks
+        method: get
         cors: true
 
 #    The following are a few example events you can configure
